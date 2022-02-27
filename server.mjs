@@ -50,6 +50,9 @@ app.post("/talktochatbot", async (req, res) => {
 app.get("/profile", (req, res) => {
     res.send("here is your profile");
 })
+app.get("/", (req, res) => {
+    res.send("Welcome to dailogeflow feature");
+})
 app.get("/about", (req, res) => {
     res.send("some information about me");
 })
