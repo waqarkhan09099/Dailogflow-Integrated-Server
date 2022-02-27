@@ -5,10 +5,10 @@
   "main": "server.mjs",
   "scripts": {
     "start": "node server.mjs",
+    "dev": "nodemon server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    
     "type": "git",
     "url": "git+https://github.com/waqarkhan09099/Dailogflow-Integrated-Server.git"
   },
