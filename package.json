@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "start": "node server.mjs",
+    "start": "npm start",
     "dev": "nodemon server.mjs",
     "type": "git",
     "url": "git+https://github.com/waqarkhan09099/Dailogflow-Integrated-Server.git"
