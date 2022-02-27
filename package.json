@@ -1,0 +1,27 @@
+{
+  "name": "dailogflow-integrated-server",
+  "version": "1.0.0",
+  "description": "server of integrated with dailogflow.",
+  "main": "server.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "start": "node server.mjs",
+    "dev": "nodemon server.mjs",
+    "type": "git",
+    "url": "git+https://github.com/waqarkhan09099/Dailogflow-Integrated-Server.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waqarkhan09099/Dailogflow-Integrated-Server/issues"
+  },
+  "homepage": "https://github.com/waqarkhan09099/Dailogflow-Integrated-Server#readme",
+  "dependencies": {
+    "@google-cloud/dialogflow": "^4.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
