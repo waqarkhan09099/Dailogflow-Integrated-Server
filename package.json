@@ -4,11 +4,11 @@
   "description": "server of integrated with dailogflow.",
   "main": "server.mjs",
   "scripts": {
+    "start": "node server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "start": "npm start",
-    "dev": "nodemon server.mjs",
+    
     "type": "git",
     "url": "git+https://github.com/waqarkhan09099/Dailogflow-Integrated-Server.git"
   },
