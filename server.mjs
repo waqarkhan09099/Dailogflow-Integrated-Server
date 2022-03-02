@@ -5,9 +5,12 @@ import dialogflow from '@google-cloud/dialogflow';
 const sessionClient = new dialogflow.SessionsClient();
 
 const app = express();
-app.use(cors())
+app.use(cors({
+    origin: '*'
+}));
 app.use(express.json())
 // app.use('/', express.static(path.join(__dirname, 'web/build')))
+
 
 
 const PORT = process.env.PORT || 7001;
@@ -25,12 +28,13 @@ app.post("/talktochatbot", async (req, res) => {
         sessionId
     );
 
+    console.log(req.body)
     // The text query request.
     const request = {
         session: sessionPath,
         queryInput: {
             text: {
-                text: query,
+                text: req.body,
                 languageCode: languageCode,
             },
         },
