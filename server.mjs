@@ -2,9 +2,9 @@ import cors from "cors";
 import express from "express";
 import dialogflow from '@google-cloud/dialogflow';
 import { WebhookClient, Card, Suggestion, Image, Payload } from 'dialogflow-fulfillment';
-// import gcHelper from "google-credentials-helper"
+import gcHelper from "google-credentials-helper"
 
-// gcHelper();
+
 const sessionClient = new dialogflow.SessionsClient();
 
 const app = express();
@@ -32,6 +32,8 @@ app.post("/talktochatbot", async (req, res) => {
         projectId,
         sessionId
     );
+    
+    
 
     console.log(req.body)
     // The text query request.
@@ -48,11 +50,11 @@ app.post("/talktochatbot", async (req, res) => {
 
     console.log("responses: ", responses);
 
-    console.log("resp: ", responses[0].queryResult.fulfillmentText);
+    console.log("resp: ", responses[0].queryResult);
 
 
     res.send({
-        text: responses[0].queryResult.fulfillmentText
+        text: responses
     });
 
 })
@@ -179,19 +181,25 @@ app.post("/webhook", (req, res) => {
 
     }
 
-    function weather(agent) {
-        // Get parameters from Dialogflow to convert
-        const cityName = agent.parameters.cityName;
 
-        console.log(`User requested to city ${cityName}`);
+    function testing () {
+        agent.add("Testing is running on....")
+    }
+
+    function fund(agent) {
+        // Get parameters from Dialogflow to convert
+        // const cityName = agent.parameters.cityName;
+
+        // console.log(`User requested to city ${cityName}`);
 
         //TODO: Get weather from api
 
         // Compile and send response
-        agent.add(`in ${cityName} its 27 degree centigrade, would you like to know anything else?`);
-        agent.add(new Suggestion('What is your name'));
-        agent.add(new Suggestion('Hi'));
-        agent.add(new Suggestion('Cancel'));
+        // agent.add(`in ${cityName} its 27 degree centigrade, would you like to know anything else?`);
+        agent.add(`Thank you contacting us , now you need to go through the website.`);
+        // agent.add(new Suggestion('What is your name'));
+        // agent.add(new Suggestion('Hi'));
+        // agent.add(new Suggestion('Cancel'));
     }
 
     function fallback(agent) {
@@ -201,7 +209,8 @@ app.post("/webhook", (req, res) => {
 
     let intentMap = new Map(); // Map functions to Dialogflow intent names
     intentMap.set('Default Welcome Intent', welcome);
-    intentMap.set('weather', weather);
+    intentMap.set('Testing', testing);
+    intentMap.set('FundCategory', fund);
     intentMap.set('Default Fallback Intent', fallback);
     agent.handleRequest(intentMap);
 
