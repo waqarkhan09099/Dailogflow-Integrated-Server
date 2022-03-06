@@ -54,7 +54,7 @@ app.post("/talktochatbot", async (req, res) => {
 
 
     res.send({
-        text: responses
+        text: responses.data.text[0].queryResult
     });
 
 })
